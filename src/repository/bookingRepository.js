@@ -11,18 +11,21 @@ class BookingRepository{
         }
     }
 
-    async update(data,userid){
+    async update(data,id){
         try {
-            const update = await Booking.update(data,{
+            const booking = await Booking.update(data,{
                 where:{
-                    id:userid
+                    id
                 }
             })
-            return update
+            const updatedBooking = await Booking.finfByPk(id)
+            return updatedBooking;
         } catch (error) {
-            throw {error : "There is some error at repository layer in updation of Booking"}
+            throw {error : "There is some error at repository layer in creation of Booking"}
         }
     }
+  
 }
+
 
 module.exports = BookingRepository;
