@@ -6,7 +6,7 @@ const app = express();
 
 const setupAndStartServer = ()=>{
     app.use(express.json());
-    app.use('/api/v1',router)
+    app.use('/bookingservice/api/v1',router)
     app.listen(PORT,()=>{
         console.log(`Listening form the server ${PORT} `)
     })
